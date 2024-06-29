@@ -135,7 +135,7 @@ end
 local function updateEsp()
     for player, esp in pairs(cache) do
         local character, team = player.Character, player.Team
-        if character and (not ESP_SETTINGS.Teamcheck or (team and team ~= localPlayer.Team)) then
+        if character and (not ESP_SETTINGS.Teamcheck and (player.Team ~= localPlayer.Team or player.TeamColor ~= localPlayer.TeamColor) then
             local rootPart = character:FindFirstChild("HumanoidRootPart")
             local head = character:FindFirstChild("Head")
             local humanoid = character:FindFirstChild("Humanoid")
